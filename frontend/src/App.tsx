@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./App.css";
 import errors from "../../errors.json";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,13 +22,20 @@ function App() {
             <h2 className="scroll-m-20 text-xl font-semibold tracking-tight">
               {error.name}
             </h2>
-            <div className="rounded-lg text-white bg-black text-start p-2">
-              <pre>{error.code}</pre>
+            <div className="rounded-2xl">
+              <SyntaxHighlighter
+                showLineNumbers={true}
+                language="python"
+                style={atomOneDark}
+                className="rounded-xl"
+              >
+                {error.code}
+              </SyntaxHighlighter>
             </div>
             <div className="flex flex-row max-w-full overflow-x-scroll gap-2 mt-4">
               {error.version_results.map((result) => (
                 <div>
-                  {result.version}
+                  Python{result.version}
                   <div className="rounded-lg text-white bg-black text-start p-2">
                     <pre>{result.diagnostic}</pre>
                   </div>
