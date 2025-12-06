@@ -13,9 +13,13 @@ def create_diagnostic(version: str, code_path: str) -> str:
         nonlocal output
         data = os.read(fd, 1024)
         output += data
-        return b""
+        return data
 
-    pty.spawn(["python" + version, code_path], read)
+    def write(fd):
+        return ""
+
+    x = pty.spawn(["python" + version, code_path], read, write)
+
     return output.decode()
 
 

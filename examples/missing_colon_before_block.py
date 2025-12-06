@@ -1,0 +1,1 @@
+if rocket.position > event_horizon
