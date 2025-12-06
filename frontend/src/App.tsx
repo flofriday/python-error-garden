@@ -3,6 +3,7 @@ import "./App.css";
 import errors from "../../errors.json";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { atomOneDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import Terminal from "./lib/Terminal";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,9 +37,10 @@ function App() {
               {error.version_results.map((result) => (
                 <div>
                   Python{result.version}
-                  <div className="rounded-lg text-white bg-black text-start p-2">
-                    <pre>{result.diagnostic}</pre>
-                  </div>
+                  <Terminal
+                    output={result.diagnostic}
+                    className="bg-black p-2 rounded-xl"
+                  ></Terminal>
                 </div>
               ))}
             </div>
