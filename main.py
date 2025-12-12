@@ -1,3 +1,4 @@
+from itertools import groupby
 from dataclasses import asdict
 import argparse
 import json
@@ -21,6 +22,21 @@ def create_diagnostic(version: str, code_path: str) -> str:
     x = pty.spawn(["python" + version, code_path], read, write)
 
     return output.decode()
+
+
+def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
+    result = []
+    for key, grouped in groupby(versions, lambda v: v.diagnostic):
+        grouped = list(grouped)
+        if len(grouped) == 1:
+            result += grouped
+            continue
+
+        result.append(
+            VersionResult(f"{grouped[-1].version} - {grouped[0].version}", key)
+        )
+    result.reverse()
+    return result
 
 
 @dataclass
@@ -65,15 +81,16 @@ def main():
         for version in versions:
             diagnostic = create_diagnostic(version, file)
             version_results.append(
-                {
-                    "version": version,
-                    "diagnostic": diagnostic,
-                }
+                VersionResult(
+                    version=version,
+                    diagnostic=diagnostic,
+                )
             )
 
         with open(file) as f:
             code = f.read()
 
+        version_results = compress_versions(version_results)
         results.append(FileResult(file, code, version_results))
 
     with open("errors.json", "w") as f:
