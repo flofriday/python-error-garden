@@ -25,6 +25,11 @@ def create_diagnostic(version: str, code_path: str) -> str:
 
 
 def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
+    """Compress multiple Version Results
+
+    It's quite common that multiple versions return the same output so to
+    not clutter the UI we compress them.
+    """
     result = []
     for key, grouped in groupby(versions, lambda v: v.diagnostic):
         grouped = list(grouped)
@@ -36,6 +41,20 @@ def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
             VersionResult(f"{grouped[-1].version} - {grouped[0].version}", key)
         )
     result.reverse()
+    return result
+
+
+def walk_directories(files: list[str]) -> list[str]:
+    result = []
+    for file in files:
+        if os.path.isfile(file):
+            result.append(file)
+            continue
+
+        for rec_root, dirs, rec_files in os.walk(file, topdown=False):
+            for name in rec_files:
+                result.append(os.path.join(rec_root, name))
+
     return result
 
 
@@ -65,7 +84,7 @@ def main():
     )
     parser.add_argument(
         "files",
-        default=["mistakes"],
+        default=["examples"],
         nargs="*",
         help="A file or folder with examples to run against",
     )
@@ -75,7 +94,8 @@ def main():
 
     results: list[FileResult] = []
 
-    for file in args.files:
+    inputs = walk_directories(args.files)
+    for file in inputs:
         print(f"Processing '{file}'...")
         version_results = []
         for version in versions:
