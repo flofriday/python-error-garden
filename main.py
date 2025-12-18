@@ -4,7 +4,7 @@ import argparse
 import json
 import os
 import pty
-from pydantic.dataclasses import dataclass
+from dataclasses import dataclass
 
 
 def create_diagnostic(version: str, code_path: str) -> str:
