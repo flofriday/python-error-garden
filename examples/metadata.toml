@@ -1,0 +1,54 @@
+[[file]]
+name = "wrong_function.py"
+title = "Calling unknown function"
+description = """This is my origin story of how I became obsessed with developer tooling. Back in 2021 I gave an intro to C course at my university and a similar mistake resulted in the error 'Implicit declaration of function is not allowed'."""
+
+[[file]]
+name = "while_keyword_typeo.py"
+title = "While keyword typo"
+description = "When a word that closely resembles a Python keyword is encountered, the interpreter will suggest the correct keyword in the error message.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). (Contributed by Pablo Galindo in [gh-132449](https://github.com/python/cpython/issues/132449).)"
+
+[[file]]
+name = "elif_follows_else.py"
+description = """
+From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
+(Contributed by Steele Farnsworth in [gh-129902](https://github.com/python/cpython/issues/129902).)"""
+
+[[file]]
+name = "statement_in_if_expression.py"
+description = """"
+From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
+(Contributed by Sergey Miryanov in [gh-129515](https://github.com/python/cpython/issues/129515).)
+"""
+
+[[file]]
+name = "incorrectly_closed_string.py"
+description = """"
+When incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string.
+From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
+(Contributed by Pablo Galindo in [gh-88535](https://github.com/python/cpython/issues/88535).)
+"""
+
+[[file]]
+name = "incompatible_string_prefixes.py"
+description = """
+When strings have incompatible prefixes, the error now shows which prefixes are incompatible.
+From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
+(Contributed by Nikita Sobolev in [gh-133197](https://github.com/python/cpython/issues/133197).)
+"""
+
+# TODO: Something about the improved error messages using as with incompatible targest
+
+[[file]]
+name = "add_dict_to_set.py"
+description = """
+Error message when trying to add an instance of an unhashable type to a dict or set. 
+From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
+(Contributed by CF Bolz-Tereick and Victor Stinner in [gh-132828](https://github.com/python/cpython/issues/132828).)
+"""
+
+# TODO: Async with here
+
+
+[[file]]
+name = "switched_import_from.py"

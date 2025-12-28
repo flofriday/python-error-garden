@@ -2,9 +2,21 @@
 
 ## Build it yourself
 
+First you need collect the errors python outputs
+
 ```bash
-uv run main.py examples/wrong_function.py
+uv run main.py examples/wrong_function.py --version=3.14
 ```
+
+This step will create the `errors.json` file which is needed to build the 
+frontend.
+
+```
+cd frontend
+npm run build
+```
+
+Which now created a single static `frontend/dist/index.html` file.
 
 ## Run the multiversion docker container
 
@@ -21,4 +33,8 @@ docker build --platform linux/amd64 -t error-garden .
 docker run -it -v $(pwd):/workspace error-garden
 ```
 
-The second command drops a shell in which you can run the generation script.
+The second command drops a shell in which you can run the generation script:
+ 
+```bash
+uv run main.py --versions all
+```

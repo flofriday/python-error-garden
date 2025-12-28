@@ -1,3 +1,4 @@
+import tomllib
 from itertools import groupby
 from dataclasses import asdict
 import argparse
@@ -44,18 +45,18 @@ def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
     return result
 
 
-def walk_directories(files: list[str]) -> list[str]:
-    result = []
-    for file in files:
-        if os.path.isfile(file):
-            result.append(file)
-            continue
+def sort_inputs(inputs: list[str], metadata: dict) -> list[str]:
+    mentioned_files = [o["name"] for o in metadata["file"]]
+    unmentioned_files = [i for i in inputs if i not in mentioned_files]
 
-        for rec_root, dirs, rec_files in os.walk(file, topdown=False):
-            for name in rec_files:
-                result.append(os.path.join(rec_root, name))
+    bad_files = [f for f in mentioned_files if f not in inputs]
+    if bad_files != []:
+        print(
+            f"🔥 The following files were mentioned in metadata.toml but don't exist: {mentioned_files}"
+        )
+        exit(1)
 
-    return result
+    return mentioned_files + sorted(unmentioned_files)
 
 
 @dataclass
@@ -67,6 +68,8 @@ class VersionResult:
 @dataclass
 class FileResult:
     name: str
+    title: str
+    description: str | None
     code: str
     version_results: list[VersionResult]
 
@@ -79,23 +82,25 @@ def main():
     parser.add_argument(
         "-v",
         "--versions",
-        default="3.14, 3.13, 3.12, 3.11, 3.10",
+        default="3.14",
         help="A comma seperated list of python versions to run against",
-    )
-    parser.add_argument(
-        "files",
-        default=["examples"],
-        nargs="*",
-        help="A file or folder with examples to run against",
     )
     args = parser.parse_args()
 
-    versions = args.versions.replace(" ", "").split(",")
+    if args.versions == "all":
+        versions = [f"3.{i}" for i in range(1, 14 + 1)]
+    else:
+        versions = args.versions.replace(" ", "").split(",")
 
     results: list[FileResult] = []
+    with open("examples/metadata.toml", "rb") as f:
+        metadata = tomllib.load(f)
 
-    inputs = walk_directories(args.files)
+    inputs = ["examples/" + f for f in sort_inputs(os.listdir("examples"), metadata)]
     for file in inputs:
+        if not file.endswith(".py"):
+            continue
+
         print(f"Processing '{file}'...")
         version_results = []
         for version in versions:
@@ -111,7 +116,15 @@ def main():
             code = f.read()
 
         version_results = compress_versions(version_results)
-        results.append(FileResult(file, code, version_results))
+        simple_name = file.removeprefix("examples/")
+        infos = [i for i in metadata["file"] if i["name"] == simple_name]
+        info = infos[0] if infos != [] else None
+        title = simple_name
+        description = None
+        if info:
+            title = info.get("title")
+            description = info.get("description")
+        results.append(FileResult(file, title, description, code, version_results))
 
     with open("errors.json", "w") as f:
         json.dump([asdict(r) for r in results], f, indent=2)
