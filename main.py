@@ -25,6 +25,12 @@ def create_diagnostic(version: str, code_path: str) -> str:
     return output.decode()
 
 
+def default_name_formatting(filename: str) -> str:
+    parts = os.path.basename(filename).removesuffix(".py").split("_")
+    parts = [p.capitalize() for p in parts]
+    return " ".join(parts)
+
+
 def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
     """Compress multiple Version Results
 
@@ -39,9 +45,9 @@ def compress_versions(versions: list[VersionResult]) -> list[VersionResult]:
             continue
 
         result.append(
-            VersionResult(f"{grouped[-1].version} - {grouped[0].version}", key)
+            VersionResult(f"{grouped[0].version} - {grouped[-1].version}", key)
         )
-    result.reverse()
+    result
     return result
 
 
@@ -88,7 +94,7 @@ def main():
     args = parser.parse_args()
 
     if args.versions == "all":
-        versions = [f"3.{i}" for i in range(1, 14 + 1)]
+        versions = [f"3.{i}" for i in range(0, 14 + 1)] + ["3.15a3"]
     else:
         versions = args.versions.replace(" ", "").split(",")
 
@@ -119,10 +125,10 @@ def main():
         simple_name = file.removeprefix("examples/")
         infos = [i for i in metadata["file"] if i["name"] == simple_name]
         info = infos[0] if infos != [] else None
-        title = simple_name
+        title = default_name_formatting(simple_name)
         description = None
         if info:
-            title = info.get("title")
+            title = info.get("title", title)
             description = info.get("description")
         results.append(FileResult(file, title, description, code, version_results))
 

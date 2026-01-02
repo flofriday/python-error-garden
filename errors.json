@@ -6,24 +6,24 @@
     "code": "def hello():\n    print(\"Hello there!\")\n\n\nhallo()\n",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/wrong_function.py\"\u001b[0m, line \u001b[35m5\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[1;31mhallo\u001b[0m()\r\n    \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'hallo' is not defined. Did you mean: 'hello'?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.11",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\n    ^^^^^\r\nNameError: name 'hallo' is not defined. Did you mean: 'hello'?\r\n"
-      },
-      {
-        "version": "3.10",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\nNameError: name 'hallo' is not defined. Did you mean: 'hello'?\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\nNameError: name 'hallo' is not defined\r\n"
       },
       {
         "version": "3.9",
         "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\nNameError: name 'hallo' is not defined\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\nNameError: name 'hallo' is not defined\r\n"
+        "version": "3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\nNameError: name 'hallo' is not defined. Did you mean: 'hello'?\r\n"
+      },
+      {
+        "version": "3.11 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/wrong_function.py\", line 5, in <module>\r\n    hallo()\r\n    ^^^^^\r\nNameError: name 'hallo' is not defined. Did you mean: 'hello'?\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/wrong_function.py\"\u001b[0m, line \u001b[35m5\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[1;31mhallo\u001b[0m()\r\n    \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'hallo' is not defined. Did you mean: 'hello'?\u001b[0m\r\n"
       }
     ]
   },
@@ -34,512 +34,516 @@
     "code": "whille True:\n    pass",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/while_keyword_typeo.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mwhille\u001b[0m True:\r\n    \u001b[1;31m^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax. Did you mean 'while'?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/while_keyword_typeo.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    whille \u001b[1;31mTrue\u001b[0m:\r\n           \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n           ^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n           ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n              ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n           ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n              ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n           ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/while_keyword_typeo.py\", line 1\r\n    whille True:\r\n           ^^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/while_keyword_typeo.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    whille \u001b[1;31mTrue\u001b[0m:\r\n           \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/while_keyword_typeo.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mwhille\u001b[0m True:\r\n    \u001b[1;31m^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax. Did you mean 'while'?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/elif_follows_else.py",
-    "title": null,
+    "title": "Elif Follows Else",
     "description": "From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Steele Farnsworth in [gh-129902](https://github.com/python/cpython/issues/129902).)",
     "code": "who = \"kuchen\"\nif who == \"me\":\n    print(\"It's me!\")\nelse:\n    print(\"It's not me!\")\nelif who is None:\n    print(\"Who is it?\")",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/elif_follows_else.py\"\u001b[0m, line \u001b[35m6\u001b[0m\r\n    \u001b[1;31melif\u001b[0m who is None:\r\n    \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'elif' block follows an 'else' block\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/elif_follows_else.py\"\u001b[0m, line \u001b[35m6\u001b[0m\r\n    \u001b[1;31melif\u001b[0m who is None:\r\n    \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n    ^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n       ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n       ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/elif_follows_else.py\", line 6\r\n    elif who is None:\r\n    ^^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/elif_follows_else.py\"\u001b[0m, line \u001b[35m6\u001b[0m\r\n    \u001b[1;31melif\u001b[0m who is None:\r\n    \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/elif_follows_else.py\"\u001b[0m, line \u001b[35m6\u001b[0m\r\n    \u001b[1;31melif\u001b[0m who is None:\r\n    \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'elif' block follows an 'else' block\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/statement_in_if_expression.py",
-    "title": null,
+    "title": "Statement In If Expression",
     "description": "\"\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Sergey Miryanov in [gh-129515](https://github.com/python/cpython/issues/129515).)\n",
     "code": "x = 1 if True else pass",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/statement_in_if_expression.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    x = 1 if True else \u001b[1;31mpass\u001b[0m\r\n                       \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected expression after 'else', but statement is given\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/statement_in_if_expression.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    x = 1 if True else \u001b[1;31mpass\u001b[0m\r\n                       \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                       ^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                       ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                          ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                       ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                          ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                       ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/statement_in_if_expression.py\", line 1\r\n    x = 1 if True else pass\r\n                       ^^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/statement_in_if_expression.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    x = 1 if True else \u001b[1;31mpass\u001b[0m\r\n                       \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/statement_in_if_expression.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    x = 1 if True else \u001b[1;31mpass\u001b[0m\r\n                       \u001b[1;31m^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected expression after 'else', but statement is given\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/incorrectly_closed_string.py",
-    "title": null,
+    "title": "Incorrectly Closed String",
     "description": "\"\nWhen incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Pablo Galindo in [gh-88535](https://github.com/python/cpython/issues/88535).)\n",
     "code": "\"The interesting object \"The important object\" is very important\"",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/incorrectly_closed_string.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \"The interesting object \"\u001b[1;31mThe important object\u001b[0m\" is very important\"\r\n                             \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax. Is this intended to be part of the string?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/incorrectly_closed_string.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \"The interesting object \"\u001b[1;31mThe\u001b[0m important object\" is very important\"\r\n                             \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                             ^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                             ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                               ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                             ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                               ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                             ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/incorrectly_closed_string.py\", line 1\r\n    \"The interesting object \"The important object\" is very important\"\r\n                             ^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/incorrectly_closed_string.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \"The interesting object \"\u001b[1;31mThe\u001b[0m important object\" is very important\"\r\n                             \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/incorrectly_closed_string.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \"The interesting object \"\u001b[1;31mThe important object\u001b[0m\" is very important\"\r\n                             \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax. Is this intended to be part of the string?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/incompatible_string_prefixes.py",
-    "title": null,
+    "title": "Incompatible String Prefixes",
     "description": "When strings have incompatible prefixes, the error now shows which prefixes are incompatible.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Nikita Sobolev in [gh-133197](https://github.com/python/cpython/issues/133197).)\n",
     "code": "ub'abc'",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/incompatible_string_prefixes.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mub\u001b[0m'abc'\r\n    \u001b[1;31m^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'u' and 'b' prefixes are incompatible\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/incompatible_string_prefixes.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    ub\u001b[1;31m'abc'\u001b[0m\r\n      \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n      ^^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n      ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n          ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n      ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n          ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n      ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/incompatible_string_prefixes.py\", line 1\r\n    ub'abc'\r\n      ^^^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/incompatible_string_prefixes.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    ub\u001b[1;31m'abc'\u001b[0m\r\n      \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35minvalid syntax\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/incompatible_string_prefixes.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mub\u001b[0m'abc'\r\n    \u001b[1;31m^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'u' and 'b' prefixes are incompatible\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/add_dict_to_set.py",
-    "title": null,
+    "title": "Add Dict To Set",
     "description": "Error message when trying to add an instance of an unhashable type to a dict or set. \nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by CF Bolz-Tereick and Victor Stinner in [gh-132828](https://github.com/python/cpython/issues/132828).)\n",
     "code": "s = set()\ns.add({\"pages\": 12, \"grade\": \"A\"})",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/add_dict_to_set.py\"\u001b[0m, line \u001b[35m2\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31ms.add\u001b[0m\u001b[1;31m({\"pages\": 12, \"grade\": \"A\"})\u001b[0m\r\n    \u001b[31m~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'dict' as a set element (unhashable type: 'dict')\u001b[0m\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/add_dict_to_set.py\", line 2, in <module>\r\n    s.add({\"pages\": 12, \"grade\": \"A\"})\r\nTypeError: unhashable type: 'dict'\r\n"
+      },
+      {
+        "version": "3.9 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/add_dict_to_set.py\", line 2, in <module>\r\n    s.add({\"pages\": 12, \"grade\": \"A\"})\r\nTypeError: unhashable type: 'dict'\r\n"
       },
       {
         "version": "3.13",
         "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/add_dict_to_set.py\"\u001b[0m, line \u001b[35m2\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31ms.add\u001b[0m\u001b[1;31m({\"pages\": 12, \"grade\": \"A\"})\u001b[0m\r\n    \u001b[31m~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35munhashable type: 'dict'\u001b[0m\r\n"
       },
       {
-        "version": "3.12 - 3.9",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/add_dict_to_set.py\", line 2, in <module>\r\n    s.add({\"pages\": 12, \"grade\": \"A\"})\r\nTypeError: unhashable type: 'dict'\r\n"
-      },
-      {
-        "version": "3.8 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/add_dict_to_set.py\", line 2, in <module>\r\n    s.add({\"pages\": 12, \"grade\": \"A\"})\r\nTypeError: unhashable type: 'dict'\r\n"
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/add_dict_to_set.py\"\u001b[0m, line \u001b[35m2\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31ms.add\u001b[0m\u001b[1;31m({\"pages\": 12, \"grade\": \"A\"})\u001b[0m\r\n    \u001b[31m~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'dict' as a set element (unhashable type: 'dict')\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/switched_import_from.py",
-    "title": null,
+    "title": "Switched Import From",
     "description": null,
     "code": "import a.y.z from b.y.z",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/switched_import_from.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mimport a.y.z from b.y.z\u001b[0m\r\n    \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mDid you mean to use 'from ... import ...' instead?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n    ^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Did you mean to use 'from ... import ...' instead?\r\n"
-      },
-      {
-        "version": "3.11 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.11",
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^^^^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.12",
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n    ^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Did you mean to use 'from ... import ...' instead?\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/switched_import_from.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mimport a.y.z from b.y.z\u001b[0m\r\n    \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mDid you mean to use 'from ... import ...' instead?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/dict_literal_not_closed.py",
-    "title": "dict_literal_not_closed.py",
+    "title": "Dict Literal Not Closed",
     "description": null,
     "code": "expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\n            38: 4, 39: 4, 45: 5, 46: 5, 47: 5, 48: 5, 49: 5, 54: 6,\nsome_other_code = foo()",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/dict_literal_not_closed.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    expected = \u001b[1;31m{\u001b[0m9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 1\r\n    expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               ^\r\nSyntaxError: '{' was never closed\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.9",
         "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "  File \"examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 1\r\n    expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               ^\r\nSyntaxError: '{' was never closed\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/dict_literal_not_closed.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    expected = \u001b[1;31m{\u001b[0m9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/forgotten_stdlib_import.py",
-    "title": "forgotten_stdlib_import.py",
+    "title": "Forgotten Stdlib Import",
     "description": null,
     "code": "sys.version_info\n",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/forgotten_stdlib_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[1;31msys\u001b[0m.version_info\r\n    \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'sys' is not defined. Did you forget to import 'sys'?\u001b[0m\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\nNameError: name 'sys' is not defined\r\n"
       },
       {
-        "version": "3.12",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\n    ^^^\r\nNameError: name 'sys' is not defined. Did you forget to import 'sys'?\r\n"
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\nNameError: name 'sys' is not defined\r\n"
       },
       {
         "version": "3.11",
         "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\n    ^^^\r\nNameError: name 'sys' is not defined\r\n"
       },
       {
-        "version": "3.10 - 3.9",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\nNameError: name 'sys' is not defined\r\n"
+        "version": "3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\n    ^^^\r\nNameError: name 'sys' is not defined. Did you forget to import 'sys'?\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/forgotten_stdlib_import.py\", line 1, in <module>\r\n    sys.version_info\r\nNameError: name 'sys' is not defined\r\n"
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/forgotten_stdlib_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[1;31msys\u001b[0m.version_info\r\n    \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'sys' is not defined. Did you forget to import 'sys'?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/generator_without_parenthesis.py",
-    "title": "generator_without_parenthesis.py",
+    "title": "Generator Without Parenthesis",
     "description": null,
     "code": "foo(x, z for z in range(10), t, w)",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/generator_without_parenthesis.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    foo(x, \u001b[1;31mz for z in range(10)\u001b[0m, t, w)\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mGenerator expression must be parenthesized\u001b[0m\r\n"
+        "version": "3.0 - 3.1",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
       },
       {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.8",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+        "version": "3.2 - 3.6",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n       ^\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
       },
       {
         "version": "3.7",
         "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n          ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
       },
       {
-        "version": "3.6 - 3.2",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n       ^\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
+        "version": "3.8",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
       },
       {
-        "version": "3.1",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/generator_without_parenthesis.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    foo(x, \u001b[1;31mz for z in range(10)\u001b[0m, t, w)\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mGenerator expression must be parenthesized\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/list_as_dict_key.py",
-    "title": "list_as_dict_key.py",
+    "title": "List As Dict Key",
     "description": null,
     "code": "d = {}\nl = [1, 2, 3]\nd[l] = 12\n",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'list' as a dict key (unhashable type: 'list')\u001b[0m\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
+      },
+      {
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
+      },
+      {
+        "version": "3.11 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\n    ~^^^\r\nTypeError: unhashable type: 'list'\r\n"
       },
       {
         "version": "3.13",
         "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35munhashable type: 'list'\u001b[0m\r\n"
       },
       {
-        "version": "3.12 - 3.11",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\n    ~^^^\r\nTypeError: unhashable type: 'list'\r\n"
-      },
-      {
-        "version": "3.10 - 3.9",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
-      },
-      {
-        "version": "3.8 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'list' as a dict key (unhashable type: 'list')\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/missing_colon_before_block.py",
-    "title": "missing_colon_before_block.py",
+    "title": "Missing Colon Before Block",
     "description": null,
     "code": "if rocket.position > event_horizon",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_colon_before_block.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    if rocket.position > event_horizon\u001b[1;31m\u001b[0m\r\n                                      \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected ':'\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: expected ':'\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                     ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.9",
         "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "  File \"examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                     ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: expected ':'\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_colon_before_block.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    if rocket.position > event_horizon\u001b[1;31m\u001b[0m\r\n                                      \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected ':'\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/missing_commas_collection_literals.py",
-    "title": "missing_commas_collection_literals.py",
+    "title": "Missing Commas Collection Literals",
     "description": null,
     "code": "items = {\nx: 1,\ny: 2\nz: 3,",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_commas_collection_literals.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    items = \u001b[1;31m{\u001b[0m\r\n            \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 1\r\n    items = {\r\n            ^\r\nSyntaxError: '{' was never closed\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.9",
         "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "  File \"examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 1\r\n    items = {\r\n            ^\r\nSyntaxError: '{' was never closed\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_commas_collection_literals.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    items = \u001b[1;31m{\u001b[0m\r\n            \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/missing_self_attribute.py",
-    "title": "missing_self_attribute.py",
+    "title": "Missing Self Attribute",
     "description": null,
     "code": "class A:\n    def __init__(self):\n        self.blech = 1\n\n    def foo(self):\n        somethin = blech\n\n\nA().foo()",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/missing_self_attribute.py\"\u001b[0m, line \u001b[35m9\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31mA().foo\u001b[0m\u001b[1;31m()\u001b[0m\r\n    \u001b[31m~~~~~~~\u001b[0m\u001b[1;31m^^\u001b[0m\r\n  File \u001b[35m\"/workspace/examples/missing_self_attribute.py\"\u001b[0m, line \u001b[35m6\u001b[0m, in \u001b[35mfoo\u001b[0m\r\n    somethin = \u001b[1;31mblech\u001b[0m\r\n               \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'blech' is not defined. Did you mean: 'self.blech'?\u001b[0m\r\n"
+        "version": "3.0 - 3.3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: global name 'blech' is not defined\r\n"
       },
       {
-        "version": "3.12",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\n               ^^^^^\r\nNameError: name 'blech' is not defined. Did you mean: 'self.blech'?\r\n"
+        "version": "3.4 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: name 'blech' is not defined\r\n"
+      },
+      {
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: name 'blech' is not defined\r\n"
       },
       {
         "version": "3.11",
         "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\n               ^^^^^\r\nNameError: name 'blech' is not defined\r\n"
       },
       {
-        "version": "3.10 - 3.9",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: name 'blech' is not defined\r\n"
+        "version": "3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"/workspace/examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\n               ^^^^^\r\nNameError: name 'blech' is not defined. Did you mean: 'self.blech'?\r\n"
       },
       {
-        "version": "3.8 - 3.4",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: name 'blech' is not defined\r\n"
-      },
-      {
-        "version": "3.3 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/missing_self_attribute.py\", line 9, in <module>\r\n    A().foo()\r\n  File \"examples/missing_self_attribute.py\", line 6, in foo\r\n    somethin = blech\r\nNameError: global name 'blech' is not defined\r\n"
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/missing_self_attribute.py\"\u001b[0m, line \u001b[35m9\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31mA().foo\u001b[0m\u001b[1;31m()\u001b[0m\r\n    \u001b[31m~~~~~~~\u001b[0m\u001b[1;31m^^\u001b[0m\r\n  File \u001b[35m\"/workspace/examples/missing_self_attribute.py\"\u001b[0m, line \u001b[35m6\u001b[0m, in \u001b[35mfoo\u001b[0m\r\n    somethin = \u001b[1;31mblech\u001b[0m\r\n               \u001b[1;31m^^^^^\u001b[0m\r\n\u001b[1;35mNameError\u001b[0m: \u001b[35mname 'blech' is not defined. Did you mean: 'self.blech'?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/multiple_exceptions_without_parentheses.py",
-    "title": "multiple_exceptions_without_parentheses.py",
+    "title": "Multiple Exceptions Without Parentheses",
     "description": null,
     "code": "try:\n    build_dyson_sphere()\nexcept NotEnoughScienceError, NotEnoughResourcesError:",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n\u001b[1;35mIndentationError\u001b[0m: \u001b[35mexpected an indented block\u001b[0m\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except \u001b[1;31mNotEnoughScienceError, NotEnoughResourcesError\u001b[0m:\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mmultiple exception types must be parenthesized\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: multiple exception types must be parenthesized\r\n"
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.9",
         "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.8 - 3.1",
-        "diagnostic": "  File \"examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: multiple exception types must be parenthesized\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except \u001b[1;31mNotEnoughScienceError, NotEnoughResourcesError\u001b[0m:\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mmultiple exception types must be parenthesized\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n\u001b[1;35mIndentationError\u001b[0m: \u001b[35mexpected an indented block\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/typo_in_from_import.py",
-    "title": "typo_in_from_import.py",
+    "title": "Typo In From Import",
     "description": null,
     "code": "from collections import chainmap",
     "version_results": [
       {
-        "version": "3.14",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_from_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    from collections import chainmap\r\n\u001b[1;35mImportError\u001b[0m: \u001b[35mcannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/lib/python3.14/collections/__init__.py). Did you mean: 'ChainMap'?\u001b[0m\r\n"
+        "version": "3.0 - 3.3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name chainmap\r\n"
       },
       {
-        "version": "3.13",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_from_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    from collections import chainmap\r\n\u001b[1;35mImportError\u001b[0m: \u001b[35mcannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.13.11-linux-x86_64-gnu/lib/python3.13/collections/__init__.py). Did you mean: 'ChainMap'?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/collections/__init__.py). Did you mean: 'ChainMap'?\r\n"
-      },
-      {
-        "version": "3.11",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/collections/__init__.py)\r\n"
-      },
-      {
-        "version": "3.10",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/collections/__init__.py)\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.9.25-linux-x86_64-gnu/lib/python3.9/collections/__init__.py)\r\n"
-      },
-      {
-        "version": "3.8",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.8.20-linux-x86_64-gnu/lib/python3.8/collections/__init__.py)\r\n"
+        "version": "3.4 - 3.6",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap'\r\n"
       },
       {
         "version": "3.7",
         "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/usr/local/python3.7/lib/python3.7/collections/__init__.py)\r\n"
       },
       {
-        "version": "3.6 - 3.4",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap'\r\n"
+        "version": "3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.8.20-linux-x86_64-gnu/lib/python3.8/collections/__init__.py)\r\n"
       },
       {
-        "version": "3.3 - 3.1",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name chainmap\r\n"
+        "version": "3.9",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.9.25-linux-x86_64-gnu/lib/python3.9/collections/__init__.py)\r\n"
+      },
+      {
+        "version": "3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.10.19-linux-x86_64-gnu/lib/python3.10/collections/__init__.py)\r\n"
+      },
+      {
+        "version": "3.11",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.11.14-linux-x86_64-gnu/lib/python3.11/collections/__init__.py)\r\n"
+      },
+      {
+        "version": "3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_from_import.py\", line 1, in <module>\r\n    from collections import chainmap\r\nImportError: cannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.12.12-linux-x86_64-gnu/lib/python3.12/collections/__init__.py). Did you mean: 'ChainMap'?\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_from_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    from collections import chainmap\r\n\u001b[1;35mImportError\u001b[0m: \u001b[35mcannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.13.11-linux-x86_64-gnu/lib/python3.13/collections/__init__.py). Did you mean: 'ChainMap'?\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_from_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    from collections import chainmap\r\n\u001b[1;35mImportError\u001b[0m: \u001b[35mcannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.14.2-linux-x86_64-gnu/lib/python3.14/collections/__init__.py). Did you mean: 'ChainMap'?\u001b[0m\r\n"
+      },
+      {
+        "version": "3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_from_import.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    from collections import chainmap\r\n\u001b[1;35mImportError\u001b[0m: \u001b[35mcannot import name 'chainmap' from 'collections' (/root/.local/share/uv/python/cpython-3.15.0a3-linux-x86_64-gnu/lib/python3.15/collections/__init__.py). Did you mean: 'ChainMap'?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/unparenthesised_tuple_comprehension_target.py",
-    "title": "unparenthesised_tuple_comprehension_target.py",
+    "title": "Unparenthesised Tuple Comprehension Target",
     "description": null,
     "code": "{x,y for x,y in zip('abcd', '1234')}",
     "version_results": [
       {
-        "version": "3.14 - 3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/unparenthesised_tuple_comprehension_target.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    {\u001b[1;31mx,y\u001b[0m for x,y in zip('abcd', '1234')}\r\n     \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mdid you forget parentheses around the comprehension target?\u001b[0m\r\n"
-      },
-      {
-        "version": "3.12 - 3.10",
-        "diagnostic": "  File \"/workspace/examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n     ^^^\r\nSyntaxError: did you forget parentheses around the comprehension target?\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n         ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n           ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.8",
         "diagnostic": "  File \"examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n         ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.7 - 3.1",
-        "diagnostic": "  File \"examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n           ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n         ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/unparenthesised_tuple_comprehension_target.py\", line 1\r\n    {x,y for x,y in zip('abcd', '1234')}\r\n     ^^^\r\nSyntaxError: did you forget parentheses around the comprehension target?\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/unparenthesised_tuple_comprehension_target.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    {\u001b[1;31mx,y\u001b[0m for x,y in zip('abcd', '1234')}\r\n     \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mdid you forget parentheses around the comprehension target?\u001b[0m\r\n"
       }
     ]
   }
