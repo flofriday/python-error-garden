@@ -1,6 +1,5 @@
-import { useEffect, useRef } from "react";
-import { Terminal as XTerm } from "@xterm/xterm";
-import "@xterm/xterm/css/xterm.css";
+import { useMemo } from "react";
+import Anser from "anser";
 
 interface TerminalProps {
   output?: string;
@@ -11,42 +10,21 @@ export default function Terminal({
   output = "",
   className = "",
 }: TerminalProps) {
-  const terminalRef = useRef<HTMLDivElement>(null);
-  const xtermRef = useRef<XTerm | null>(null);
+  const htmlOutput = useMemo(() => {
+    if (!output) return "";
 
-  // Initialize terminal
-  useEffect(() => {
-    if (!terminalRef.current) return;
-
-    const term = new XTerm({
-      cursorBlink: false,
-      fontSize: 14,
-      fontFamily: 'Menlo, Monaco, "Courier New", monospace',
-      rows: 8,
-      cols: 100,
-      theme: {
-        background: "#000000",
-        foreground: "#ffffff",
-        cursor: "#ffffff",
-      },
+    // Convert ANSI to HTML
+    const anserOutput = Anser.ansiToHtml(output, {
+      use_classes: false,
     });
 
-    term.open(terminalRef.current);
-    xtermRef.current = term;
-    // Handle user input if onData callback is provided
-
-    // Cleanup
-    return () => {
-      term.dispose();
-    };
-  }, []);
-
-  // Update output when prop changes
-  useEffect(() => {
-    if (xtermRef.current && output) {
-      xtermRef.current.write(output);
-    }
+    return anserOutput;
   }, [output]);
 
-  return <div ref={terminalRef} className={className} />;
+  return (
+    <pre
+      className={`bg-black p-2 font-mono text-sm ${className}`}
+      dangerouslySetInnerHTML={{ __html: htmlOutput }}
+    />
+  );
 }
