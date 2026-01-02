@@ -23,7 +23,7 @@ export default function Terminal({
 
   return (
     <pre
-      className={`bg-black p-2 font-mono text-sm ${className}`}
+      className={`bg-black p-2 font-mono text-sm overflow-x-scroll ${className}`}
       dangerouslySetInnerHTML={{ __html: htmlOutput }}
     />
   );

@@ -7,7 +7,7 @@ import Markdown from "react-markdown";
 
 function App() {
   return (
-    <>
+    <div className="p-4">
         <div className="mt-12 mb-8">
             <h1
                 className="
@@ -53,7 +53,7 @@ function App() {
           </div>
         ))}
       </main>
-    </>
+    </div>
   );
 }
 
