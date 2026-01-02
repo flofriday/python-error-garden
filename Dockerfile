@@ -30,7 +30,7 @@ RUN cd /tmp && \
     ./configure --prefix=/usr/local/python3.0 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/python3.0/lib" && \
     make -j$(nproc) && \
     make install && \
-    ln -s /usr/local/python3.0/bin/python3 /usr/local/bin/python3.0 && \
+    ln -s /usr/local/python3.0/bin/python3.0 /usr/local/bin/python3.0 && \
     cd /tmp && rm -rf Python-3.0.1*
 
 # Build Python 3.1.5 (last 3.1 release)
@@ -143,6 +143,10 @@ RUN echo "Verifying Python installations:" && \
     python3.12 --version && \
     python3.13 --version && \
     python3.14 --version
+
+# Install the latest 3.15 release do this at the bottom because we will likely 
+# update this more often
+RUN uv python install 3.15a3 && ln -s /root/.local/share/uv/python/cpython-3.15.*/bin/python3 /usr/local/bin/python3.15a3
 
 WORKDIR /workspace
 
