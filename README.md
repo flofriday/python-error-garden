@@ -1,5 +1,8 @@
 # Python Error Garden
 
+![Screenshot](screenshot.png)
+[🌍 Live Website](https://flofriday.github.io/python-error-garden/)
+
 ## Build it yourself
 
 First you need collect the errors python outputs
