@@ -4,12 +4,15 @@ export default function EndCard() {
       <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-2">
         You reached the end! ✨
       </h2>
-      <div className="mb-4 text-sm text-secondary-foreground prose prose-sm max-w-none">
-        I know, I'm sad too. But if you can think of any other good/bad example worth showing the world,
-        don't hesitate to submit an issue on GitHub!
+      <div className="text-sm text-secondary-foreground prose prose-sm max-w-none">
+        I know. I'm sad too. But if you can think of any other good/bad example worth showing the world,
+        don't hesitate to submit an <a href="https://github.com/flofriday/python-error-garden/issues">issue on GitHub</a>!
         <br />
         <br />
         And if you haven't yet read the accompanying blog post, there is no time like the present. 🙃
+        <br />
+        <br />
+        Made with ❤️ by <a href="https://github.com/flofriday">flofriday</a>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ interface VersionResult {
 
 interface ErrorCardProps {
   title: string;
-  description: string;
+  description: string | null;
   code: string;
   versionResults: VersionResult[];
 }
