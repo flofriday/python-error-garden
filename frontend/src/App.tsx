@@ -1,72 +1,44 @@
+import { useEffect } from "react";
 import "./App.css";
 import errors from "../../errors.json";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import Terminal from "./lib/Terminal";
-import Markdown from "react-markdown";
+import ErrorCard from "./components/ErrorCard";
+import EndCard from "./components/EndCard";
 
 function App() {
+  useEffect(() => {
+    // Handle hash navigation after content is rendered
+    const hash = window.location.hash;
+    if (hash) {
+      // Small delay to ensure content is fully rendered
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="p-4">
-        <div className="mt-12 mb-8">
-            <h1
-                className="
-      scroll-m-20 text-center text-6xl font-extrabold tracking-tight text-balance mb-4"
-            >
-                Python Error Garden
-            </h1>
-            <p>Python continues to improve it's error messages. Let's explore their evolution! 🎉</p>
-        </div>
+      <div className="mt-12 mb-8">
+        <h1 className="scroll-m-20 text-center text-6xl font-extrabold tracking-tight text-balance mb-4">
+          Python Error Garden
+        </h1>
+        <p>Python continues to improve it's error messages. Let's explore their evolution! 🎉</p>
+      </div>
 
       <main className="text-start flex flex-col gap-2 m-auto max-w-3xl">
         {errors.map((error) => (
-          <div className="my-4 border shadow-sm p-4 rounded-2xl bg-card">
-            <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-2">
-              {error.title || error.name}
-            </h2>
-            <div className="mb-4 text-sm text-secondary-foreground prose prose-sm max-w-none">
-              <Markdown>{error.description}</Markdown>
-            </div>
-            <div className="rounded-2xl">
-              <SyntaxHighlighter
-                showLineNumbers={true}
-                lineNumberContainerStyle={{ color: '#999', backgroundColor: '#ff0000' }}
-                lineNumberStyle={{ color: '#999' }}
-                language="python"
-                style={githubGist}
-                className="rounded-xl border text-sm"
-              >
-                {error.code.trim()}
-              </SyntaxHighlighter>
-            </div>
-            <div className="flex flex-col max-w-full overflow-x-scroll gap-4 mt-4">
-              {error.version_results.map((result) => (
-                <div className="text-sm">
-                  Python{result.version}
-                  <Terminal
-                    output={result.diagnostic}
-                    className="bg-white border rounded-2xl p-2 rounded-xl"
-                  ></Terminal>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ErrorCard
+            key={error.name}
+            title={error.title || error.name}
+            description={error.description}
+            code={error.code}
+            versionResults={error.version_results}
+          />
         ))}
-
-          <div className="my-4 border shadow-sm p-4 rounded-2xl bg-card">
-            <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-2">
-              You reached the end! ✨
-            </h2>
-            <div className="mb-4 text-sm text-secondary-foreground prose prose-sm max-w-none">
-                  I know, I'm sad too. But if you can think of any other good/bad example worth showing the world,
-                  don't hesitate to submit an issue on GitHub!
-
-                <br />
-                <br />
-                  And if you haven't yet read the accompanying blog post, there is no time like the present. 🙃
-            </div>
-          </div>
-
+        <EndCard />
       </main>
     </div>
   );
