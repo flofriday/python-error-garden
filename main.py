@@ -58,7 +58,7 @@ def sort_inputs(inputs: list[str], metadata: dict) -> list[str]:
     bad_files = [f for f in mentioned_files if f not in inputs]
     if bad_files != []:
         print(
-            f"🔥 The following files were mentioned in metadata.toml but don't exist: {mentioned_files}"
+            f"🔥 The following files were mentioned in metadata.toml but don't exist: {bad_files}"
         )
         exit(1)
 

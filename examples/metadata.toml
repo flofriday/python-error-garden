@@ -3,6 +3,15 @@ name = "wrong_function.py"
 title = "Calling unknown function"
 description = """This is my origin story of how I became obsessed with developer tooling. Back in 2021 I gave an intro to C course at my university and a similar mistake resulted in the error 'Implicit declaration of function is not allowed'."""
 
+# == 3.15 Release notes ==
+[[file]]
+name = "attribute_only_available_in_member.py"
+description = """
+The interpreter now provides more helpful suggestions in AttributeError exceptions when accessing an attribute on an object that does not exist, but a similar attribute is available through one of its members.
+From the [Python3.15 release notes](https://docs.python.org/3.15/whatsnew/3.15.html#improved-error-messages).
+"""
+
+# == 3.14 Release notes ==
 [[file]]
 name = "while_keyword_typeo.py"
 title = "While keyword typo"
@@ -16,14 +25,14 @@ From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html
 
 [[file]]
 name = "statement_in_if_expression.py"
-description = """"
+description = """
 From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
 (Contributed by Sergey Miryanov in [gh-129515](https://github.com/python/cpython/issues/129515).)
 """
 
 [[file]]
 name = "incorrectly_closed_string.py"
-description = """"
+description = """
 When incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string.
 From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). 
 (Contributed by Pablo Galindo in [gh-88535](https://github.com/python/cpython/issues/88535).)
@@ -49,6 +58,107 @@ From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html
 
 # TODO: Async with here
 
+# == 3.13 Release notes ==
+[[file]]
+name = "random.py"
+title = "Name clash with stdlib"
+description = """
+Acommon mistake is to write a script with the same name as a standard library module. When this results in errors, we now display a more helpful error message
+From the [Python3.13 release notes](https://docs.python.org/3/whatsnew/3.13.html#improved-error-messages).
+(Contributed by Shantanu Jain in [gh-95754](https://github.com/python/cpython/issues/95754).)
+"""
+
+[[file]]
+name = "typo_in_keyword_argument.py"
+description = """
+The error message now tries to suggest the correct keyword argument when an incorrect keyword argument is passed to a function.
+From the [Python3.13 release notes](https://docs.python.org/3/whatsnew/3.13.html#improved-error-messages).
+(Contributed by Pablo Galindo Salgado and Shantanu Jain in [gh-107944](https://github.com/python/cpython/issues/107944).)
+"""
+
+
+# == 3.12 Release notes ==
+
+[[file]]
+name = "forgotten_stdlib_import.py"
+description = """
+Modules from the standard library are now potentially suggested as part of the error messages displayed by the interpreter.
+From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).
+(Contributed by Pablo Galindo in [gh-98254](https://github.com/python/cpython/issues/98254).)
+"""
+
+[[file]]
+name = "missing_self_attribute.py"
+description = """
+If a NameError is raised in a method and the instance has an attribute that’s exactly equal to the name in the exception,
+the interpreter will suggest that one.
+From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).
+(Contributed by Pablo Galindo in [gh-99139](https://github.com/python/cpython/issues/99139).)
+"""
 
 [[file]]
 name = "switched_import_from.py"
+description = """
+From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).
+(Contributed by Pablo Galindo in [gh-98931](https://github.com/python/cpython/issues/98931).)
+"""
+
+[[file]]
+name = "typo_in_from_import.py"
+description = """
+From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).
+(Contributed by Pablo Galindo in [gh-91058](https://github.com/python/cpython/issues/91058).)
+"""
+
+# == 3.11 had no improvements ==
+
+# == 3.10 notes ==
+[[file]]
+name = "dict_literal_not_closed.py"
+description = """
+When parsing code that contains unclosed parentheses or brackets the interpreter now includes the location of the unclosed bracket of parentheses.
+In a similar way, errors involving unclosed string literals (single and triple quoted) now point to the start of the string instead of reporting EOF/EOL.
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Contributed by Pablo Galindo in [bpo-42864](https://bugs.python.org/issue?@action=redirect&bpo=42864) and Batuhan Taskaya in [bpo-40176](https://bugs.python.org/issue?@action=redirect&bpo=40176).)
+"""
+
+[[file]]
+name = "generator_without_parenthesis.py"
+description = """
+SyntaxError exceptions raised by the interpreter will now highlight the full error range of the expression that constitutes the syntax error itself, instead of just where the problem is detected.
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Contributed by Pablo Galindo in [bpo-43914](https://bugs.python.org/issue?@action=redirect&bpo=43914).)
+"""
+
+[[file]]
+name = "missing_colon_before_block.py"
+description = """
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Contributed by Pablo Galindo in [bpo-42997](https://bugs.python.org/issue?@action=redirect&bpo=42997).)
+"""
+
+[[file]]
+name = "unparenthesised_tuple_comprehension_target.py"
+description = """
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Contributed by Pablo Galindo in [bpo-43017](https://bugs.python.org/issue?@action=redirect&bpo=43017).)
+"""
+
+[[file]]
+name = "missing_commas_collection_literals.py"
+description = """
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Contributed by Pablo Galindo in [bpo-43822](https://bugs.python.org/issue?@action=redirect&bpo=43822).)
+"""
+
+[[file]]
+name = "multiple_exceptions_without_parentheses.py"
+description = """
+The improved error got added in 3.10 but in 3.14 [PEP 758](https://peps.python.org/pep-0758/) got implemented that makes this syntax valid.
+From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).
+(Original improvement contributed by Pablo Galindo in [bpo-43822](https://bugs.python.org/issue?@action=redirect&bpo=43822), PEP 758 implementation contributed by Pablo Galindo and Brett Cannon in [gh-131831](https://github.com/python/cpython/issues/131831).)
+"""
+
+# TODO: Add remaining examples from 3.10 and 3.9
+# TODO: Look at other languages
+

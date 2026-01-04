@@ -59,7 +59,7 @@ export default function ErrorCard({ title, description, code, versionResults }: 
           <Markdown>{description}</Markdown>
         </div>
         <CodeView code={code} />
-        <div className="flex flex-col max-w-full overflow-x-scroll gap-4 mt-4">
+        <div className="flex flex-col max-w-full gap-4 mt-4">
           {versionResults.map((result) => (
             <div key={result.version} className="text-sm">
               Python{result.version}

@@ -28,6 +28,38 @@
     ]
   },
   {
+    "name": "examples/attribute_only_available_in_member.py",
+    "title": "Attribute Only Available In Member",
+    "description": "The interpreter now provides more helpful suggestions in AttributeError exceptions when accessing an attribute on an object that does not exist, but a similar attribute is available through one of its members.\nFrom the [Python3.15 release notes](https://docs.python.org/3.15/whatsnew/3.15.html#improved-error-messages).\n",
+    "code": "from dataclasses import dataclass\n@dataclass\nclass Circle:\n   radius: float\n\n   @property\n   def area(self) -> float:\n      return pi * self.radius**2\n\nclass Container:\n   def __init__(self, inner: Circle) -> None:\n      self.inner = inner\n\ncircle = Circle(radius=4.0)\ncontainer = Container(circle)\nprint(container.area)",
+    "version_results": [
+      {
+        "version": "3.0 - 3.5",
+        "diagnostic": "  File \"examples/attribute_only_available_in_member.py\", line 4\r\n    radius: float\r\n          ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.6",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/attribute_only_available_in_member.py\", line 1, in <module>\r\n    from dataclasses import dataclass\r\nModuleNotFoundError: No module named 'dataclasses'\r\n"
+      },
+      {
+        "version": "3.7 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/attribute_only_available_in_member.py\", line 16, in <module>\r\n    print(container.area)\r\nAttributeError: 'Container' object has no attribute 'area'\r\n"
+      },
+      {
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/attribute_only_available_in_member.py\", line 16, in <module>\r\n    print(container.area)\r\nAttributeError: 'Container' object has no attribute 'area'\r\n"
+      },
+      {
+        "version": "3.11 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/attribute_only_available_in_member.py\", line 16, in <module>\r\n    print(container.area)\r\n          ^^^^^^^^^^^^^^\r\nAttributeError: 'Container' object has no attribute 'area'\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/attribute_only_available_in_member.py\"\u001b[0m, line \u001b[35m16\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    print(\u001b[1;31mcontainer.area\u001b[0m)\r\n          \u001b[1;31m^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mAttributeError\u001b[0m: \u001b[35m'Container' object has no attribute 'area'\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
     "name": "examples/while_keyword_typeo.py",
     "title": "While keyword typo",
     "description": "When a word that closely resembles a Python keyword is encountered, the interpreter will suggest the correct keyword in the error message.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). (Contributed by Pablo Galindo in [gh-132449](https://github.com/python/cpython/issues/132449).)",
@@ -94,7 +126,7 @@
   {
     "name": "examples/statement_in_if_expression.py",
     "title": "Statement In If Expression",
-    "description": "\"\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Sergey Miryanov in [gh-129515](https://github.com/python/cpython/issues/129515).)\n",
+    "description": "From the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Sergey Miryanov in [gh-129515](https://github.com/python/cpython/issues/129515).)\n",
     "code": "x = 1 if True else pass",
     "version_results": [
       {
@@ -126,7 +158,7 @@
   {
     "name": "examples/incorrectly_closed_string.py",
     "title": "Incorrectly Closed String",
-    "description": "\"\nWhen incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Pablo Galindo in [gh-88535](https://github.com/python/cpython/issues/88535).)\n",
+    "description": "When incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string.\nFrom the [Python3.14 release notes](https://docs.python.org/3/whatsnew/3.14.html#improved-error-messages). \n(Contributed by Pablo Galindo in [gh-88535](https://github.com/python/cpython/issues/88535).)\n",
     "code": "\"The interesting object \"The important object\" is very important\"",
     "version_results": [
       {
@@ -212,65 +244,69 @@
     ]
   },
   {
-    "name": "examples/switched_import_from.py",
-    "title": "Switched Import From",
-    "description": null,
-    "code": "import a.y.z from b.y.z",
+    "name": "examples/random.py",
+    "title": "Name clash with stdlib",
+    "description": "Acommon mistake is to write a script with the same name as a standard library module. When this results in errors, we now display a more helpful error message\nFrom the [Python3.13 release notes](https://docs.python.org/3/whatsnew/3.13.html#improved-error-messages).\n(Contributed by Shantanu Jain in [gh-95754](https://github.com/python/cpython/issues/95754).)\n",
+    "code": "import random\nprint(random.randint(5))",
     "version_results": [
       {
-        "version": "3.0 - 3.7",
-        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.4",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/random.py\", line 1, in <module>\r\n    import random\r\n  File \"/workspace/examples/random.py\", line 2, in <module>\r\n    print(random.randint(5))\r\nAttributeError: 'module' object has no attribute 'randint'\r\n"
+      },
+      {
+        "version": "3.5 - 3.7",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/random.py\", line 1, in <module>\r\n    import random\r\n  File \"/workspace/examples/random.py\", line 2, in <module>\r\n    print(random.randint(5))\r\nAttributeError: module 'random' has no attribute 'randint'\r\n"
       },
       {
         "version": "3.8",
-        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/random.py\", line 1, in <module>\r\n    import random\r\n  File \"/workspace/examples/random.py\", line 2, in <module>\r\n    print(random.randint(5))\r\nAttributeError: partially initialized module 'random' has no attribute 'randint' (most likely due to a circular import)\r\n"
       },
       {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/random.py\", line 1, in <module>\r\n    import random\r\n  File \"/workspace/examples/random.py\", line 2, in <module>\r\n    print(random.randint(5))\r\nAttributeError: partially initialized module 'random' has no attribute 'randint' (most likely due to a circular import)\r\n"
       },
       {
-        "version": "3.10 - 3.11",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^^^^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.12",
-        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n    ^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Did you mean to use 'from ... import ...' instead?\r\n"
+        "version": "3.11 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/random.py\", line 1, in <module>\r\n    import random\r\n  File \"/workspace/examples/random.py\", line 2, in <module>\r\n    print(random.randint(5))\r\n          ^^^^^^^^^^^^^^\r\nAttributeError: partially initialized module 'random' has no attribute 'randint' (most likely due to a circular import)\r\n"
       },
       {
         "version": "3.13 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/switched_import_from.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mimport a.y.z from b.y.z\u001b[0m\r\n    \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mDid you mean to use 'from ... import ...' instead?\u001b[0m\r\n"
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/random.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    import random\r\n  File \u001b[35m\"/workspace/examples/random.py\"\u001b[0m, line \u001b[35m2\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    print(\u001b[1;31mrandom.randint\u001b[0m(5))\r\n          \u001b[1;31m^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mAttributeError\u001b[0m: \u001b[35mmodule 'random' has no attribute 'randint' (consider renaming '/workspace/examples/random.py' since it has the same name as the standard library module named 'random' and prevents importing that standard library module)\u001b[0m\r\n"
       }
     ]
   },
   {
-    "name": "examples/dict_literal_not_closed.py",
-    "title": "Dict Literal Not Closed",
-    "description": null,
-    "code": "expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\n            38: 4, 39: 4, 45: 5, 46: 5, 47: 5, 48: 5, 49: 5, 54: 6,\nsome_other_code = foo()",
+    "name": "examples/typo_in_keyword_argument.py",
+    "title": "Typo In Keyword Argument",
+    "description": "The error message now tries to suggest the correct keyword argument when an incorrect keyword argument is passed to a function.\nFrom the [Python3.13 release notes](https://docs.python.org/3/whatsnew/3.13.html#improved-error-messages).\n(Contributed by Pablo Galindo Salgado and Shantanu Jain in [gh-107944](https://github.com/python/cpython/issues/107944).)\n",
+    "code": "\"Better error messages!\".split(max_split=1)",
     "version_results": [
       {
-        "version": "3.0 - 3.8",
-        "diagnostic": "  File \"examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.2",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_keyword_argument.py\", line 1, in <module>\r\n    \"Better error messages!\".split(max_split=1)\r\nTypeError: split() takes no keyword arguments\r\n"
       },
       {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.3 - 3.6",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_keyword_argument.py\", line 1, in <module>\r\n    \"Better error messages!\".split(max_split=1)\r\nTypeError: 'max_split' is an invalid keyword argument for this function\r\n"
       },
       {
-        "version": "3.10 - 3.12",
-        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 1\r\n    expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               ^\r\nSyntaxError: '{' was never closed\r\n"
+        "version": "3.7 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/typo_in_keyword_argument.py\", line 1, in <module>\r\n    \"Better error messages!\".split(max_split=1)\r\nTypeError: 'max_split' is an invalid keyword argument for split()\r\n"
+      },
+      {
+        "version": "3.9 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/typo_in_keyword_argument.py\", line 1, in <module>\r\n    \"Better error messages!\".split(max_split=1)\r\nTypeError: 'max_split' is an invalid keyword argument for split()\r\n"
       },
       {
         "version": "3.13 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/dict_literal_not_closed.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    expected = \u001b[1;31m{\u001b[0m9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/typo_in_keyword_argument.py\"\u001b[0m, line \u001b[35m1\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31m\"Better error messages!\".split\u001b[0m\u001b[1;31m(max_split=1)\u001b[0m\r\n    \u001b[31m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\u001b[0m\u001b[1;31m^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35msplit() got an unexpected keyword argument 'max_split'. Did you mean 'maxsplit'?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/forgotten_stdlib_import.py",
     "title": "Forgotten Stdlib Import",
-    "description": null,
+    "description": "Modules from the standard library are now potentially suggested as part of the error messages displayed by the interpreter.\nFrom the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).\n(Contributed by Pablo Galindo in [gh-98254](https://github.com/python/cpython/issues/98254).)\n",
     "code": "sys.version_info\n",
     "version_results": [
       {
@@ -296,121 +332,9 @@
     ]
   },
   {
-    "name": "examples/generator_without_parenthesis.py",
-    "title": "Generator Without Parenthesis",
-    "description": null,
-    "code": "foo(x, z for z in range(10), t, w)",
-    "version_results": [
-      {
-        "version": "3.0 - 3.1",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
-      },
-      {
-        "version": "3.2 - 3.6",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n       ^\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
-      },
-      {
-        "version": "3.7",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n          ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.8",
-        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.10 - 3.12",
-        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
-      },
-      {
-        "version": "3.13 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/generator_without_parenthesis.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    foo(x, \u001b[1;31mz for z in range(10)\u001b[0m, t, w)\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mGenerator expression must be parenthesized\u001b[0m\r\n"
-      }
-    ]
-  },
-  {
-    "name": "examples/list_as_dict_key.py",
-    "title": "List As Dict Key",
-    "description": null,
-    "code": "d = {}\nl = [1, 2, 3]\nd[l] = 12\n",
-    "version_results": [
-      {
-        "version": "3.0 - 3.8",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
-      },
-      {
-        "version": "3.9 - 3.10",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
-      },
-      {
-        "version": "3.11 - 3.12",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\n    ~^^^\r\nTypeError: unhashable type: 'list'\r\n"
-      },
-      {
-        "version": "3.13",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35munhashable type: 'list'\u001b[0m\r\n"
-      },
-      {
-        "version": "3.14 - 3.15a3",
-        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'list' as a dict key (unhashable type: 'list')\u001b[0m\r\n"
-      }
-    ]
-  },
-  {
-    "name": "examples/missing_colon_before_block.py",
-    "title": "Missing Colon Before Block",
-    "description": null,
-    "code": "if rocket.position > event_horizon",
-    "version_results": [
-      {
-        "version": "3.0 - 3.8",
-        "diagnostic": "  File \"examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                     ^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.10 - 3.12",
-        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: expected ':'\r\n"
-      },
-      {
-        "version": "3.13 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_colon_before_block.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    if rocket.position > event_horizon\u001b[1;31m\u001b[0m\r\n                                      \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected ':'\u001b[0m\r\n"
-      }
-    ]
-  },
-  {
-    "name": "examples/missing_commas_collection_literals.py",
-    "title": "Missing Commas Collection Literals",
-    "description": null,
-    "code": "items = {\nx: 1,\ny: 2\nz: 3,",
-    "version_results": [
-      {
-        "version": "3.0 - 3.8",
-        "diagnostic": "  File \"examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
-      },
-      {
-        "version": "3.10 - 3.12",
-        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 1\r\n    items = {\r\n            ^\r\nSyntaxError: '{' was never closed\r\n"
-      },
-      {
-        "version": "3.13 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_commas_collection_literals.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    items = \u001b[1;31m{\u001b[0m\r\n            \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
-      }
-    ]
-  },
-  {
     "name": "examples/missing_self_attribute.py",
     "title": "Missing Self Attribute",
-    "description": null,
+    "description": "If a NameError is raised in a method and the instance has an attribute that\u2019s exactly equal to the name in the exception,\nthe interpreter will suggest that one.\nFrom the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).\n(Contributed by Pablo Galindo in [gh-99139](https://github.com/python/cpython/issues/99139).)\n",
     "code": "class A:\n    def __init__(self):\n        self.blech = 1\n\n    def foo(self):\n        somethin = blech\n\n\nA().foo()",
     "version_results": [
       {
@@ -440,37 +364,41 @@
     ]
   },
   {
-    "name": "examples/multiple_exceptions_without_parentheses.py",
-    "title": "Multiple Exceptions Without Parentheses",
-    "description": null,
-    "code": "try:\n    build_dyson_sphere()\nexcept NotEnoughScienceError, NotEnoughResourcesError:",
+    "name": "examples/switched_import_from.py",
+    "title": "Switched Import From",
+    "description": "From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).\n(Contributed by Pablo Galindo in [gh-98931](https://github.com/python/cpython/issues/98931).)\n",
+    "code": "import a.y.z from b.y.z",
     "version_results": [
       {
-        "version": "3.0 - 3.8",
-        "diagnostic": "  File \"examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
+        "version": "3.0 - 3.7",
+        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.8",
+        "diagnostic": "  File \"examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
         "version": "3.9",
-        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.10 - 3.12",
-        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: multiple exception types must be parenthesized\r\n"
+        "version": "3.10 - 3.11",
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n                 ^^^^\r\nSyntaxError: invalid syntax\r\n"
       },
       {
-        "version": "3.13",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except \u001b[1;31mNotEnoughScienceError, NotEnoughResourcesError\u001b[0m:\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mmultiple exception types must be parenthesized\u001b[0m\r\n"
+        "version": "3.12",
+        "diagnostic": "  File \"/workspace/examples/switched_import_from.py\", line 1\r\n    import a.y.z from b.y.z\r\n    ^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Did you mean to use 'from ... import ...' instead?\r\n"
       },
       {
-        "version": "3.14 - 3.15a3",
-        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n\u001b[1;35mIndentationError\u001b[0m: \u001b[35mexpected an indented block\u001b[0m\r\n"
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/switched_import_from.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    \u001b[1;31mimport a.y.z from b.y.z\u001b[0m\r\n    \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mDid you mean to use 'from ... import ...' instead?\u001b[0m\r\n"
       }
     ]
   },
   {
     "name": "examples/typo_in_from_import.py",
     "title": "Typo In From Import",
-    "description": null,
+    "description": "From the [Python3.12 release notes](https://docs.python.org/3.12/whatsnew/3.12.html#improved-error-messages).\n(Contributed by Pablo Galindo in [gh-91058](https://github.com/python/cpython/issues/91058).)\n",
     "code": "from collections import chainmap",
     "version_results": [
       {
@@ -520,9 +448,93 @@
     ]
   },
   {
+    "name": "examples/dict_literal_not_closed.py",
+    "title": "Dict Literal Not Closed",
+    "description": "When parsing code that contains unclosed parentheses or brackets the interpreter now includes the location of the unclosed bracket of parentheses.\nIn a similar way, errors involving unclosed string literals (single and triple quoted) now point to the start of the string instead of reporting EOF/EOL.\nFrom the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Contributed by Pablo Galindo in [bpo-42864](https://bugs.python.org/issue?@action=redirect&bpo=42864) and Batuhan Taskaya in [bpo-40176](https://bugs.python.org/issue?@action=redirect&bpo=40176).)\n",
+    "code": "expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\n            38: 4, 39: 4, 45: 5, 46: 5, 47: 5, 48: 5, 49: 5, 54: 6,\nsome_other_code = foo()",
+    "version_results": [
+      {
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 3\r\n    some_other_code = foo()\r\n                    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/dict_literal_not_closed.py\", line 1\r\n    expected = {9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               ^\r\nSyntaxError: '{' was never closed\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/dict_literal_not_closed.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    expected = \u001b[1;31m{\u001b[0m9: 1, 18: 2, 19: 2, 27: 3, 28: 3, 29: 3, 36: 4, 37: 4,\r\n               \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
+    "name": "examples/generator_without_parenthesis.py",
+    "title": "Generator Without Parenthesis",
+    "description": "SyntaxError exceptions raised by the interpreter will now highlight the full error range of the expression that constitutes the syntax error itself, instead of just where the problem is detected.\nFrom the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Contributed by Pablo Galindo in [bpo-43914](https://bugs.python.org/issue?@action=redirect&bpo=43914).)\n",
+    "code": "foo(x, z for z in range(10), t, w)",
+    "version_results": [
+      {
+        "version": "3.0 - 3.1",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
+      },
+      {
+        "version": "3.2 - 3.6",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n       ^\r\nSyntaxError: Generator expression must be parenthesized if not sole argument\r\n"
+      },
+      {
+        "version": "3.7",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n          ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.8",
+        "diagnostic": "  File \"examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/generator_without_parenthesis.py\", line 1\r\n    foo(x, z for z in range(10), t, w)\r\n           ^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: Generator expression must be parenthesized\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/generator_without_parenthesis.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    foo(x, \u001b[1;31mz for z in range(10)\u001b[0m, t, w)\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mGenerator expression must be parenthesized\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
+    "name": "examples/missing_colon_before_block.py",
+    "title": "Missing Colon Before Block",
+    "description": "From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Contributed by Pablo Galindo in [bpo-42997](https://bugs.python.org/issue?@action=redirect&bpo=42997).)\n",
+    "code": "if rocket.position > event_horizon",
+    "version_results": [
+      {
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                     ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/missing_colon_before_block.py\", line 1\r\n    if rocket.position > event_horizon\r\n                                      ^\r\nSyntaxError: expected ':'\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_colon_before_block.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    if rocket.position > event_horizon\u001b[1;31m\u001b[0m\r\n                                      \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mexpected ':'\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
     "name": "examples/unparenthesised_tuple_comprehension_target.py",
     "title": "Unparenthesised Tuple Comprehension Target",
-    "description": null,
+    "description": "From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Contributed by Pablo Galindo in [bpo-43017](https://bugs.python.org/issue?@action=redirect&bpo=43017).)\n",
     "code": "{x,y for x,y in zip('abcd', '1234')}",
     "version_results": [
       {
@@ -544,6 +556,86 @@
       {
         "version": "3.13 - 3.15a3",
         "diagnostic": "  File \u001b[35m\"/workspace/examples/unparenthesised_tuple_comprehension_target.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    {\u001b[1;31mx,y\u001b[0m for x,y in zip('abcd', '1234')}\r\n     \u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mdid you forget parentheses around the comprehension target?\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
+    "name": "examples/missing_commas_collection_literals.py",
+    "title": "Missing Commas Collection Literals",
+    "description": "From the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Contributed by Pablo Galindo in [bpo-43822](https://bugs.python.org/issue?@action=redirect&bpo=43822).)\n",
+    "code": "items = {\nx: 1,\ny: 2\nz: 3,",
+    "version_results": [
+      {
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 4\r\n    z: 3,\r\n    ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/missing_commas_collection_literals.py\", line 1\r\n    items = {\r\n            ^\r\nSyntaxError: '{' was never closed\r\n"
+      },
+      {
+        "version": "3.13 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/missing_commas_collection_literals.py\"\u001b[0m, line \u001b[35m1\u001b[0m\r\n    items = \u001b[1;31m{\u001b[0m\r\n            \u001b[1;31m^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35m'{' was never closed\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
+    "name": "examples/multiple_exceptions_without_parentheses.py",
+    "title": "Multiple Exceptions Without Parentheses",
+    "description": "The improved error got added in 3.10 but in 3.14 [PEP 758](https://peps.python.org/pep-0758/) got implemented that makes this syntax valid.\nFrom the [Python3.10 release notes](https://docs.python.org/3/whatsnew/3.10.html#better-error-messages).\n(Original improvement contributed by Pablo Galindo in [bpo-43822](https://bugs.python.org/issue?@action=redirect&bpo=43822), PEP 758 implementation contributed by Pablo Galindo and Brett Cannon in [gh-131831](https://github.com/python/cpython/issues/131831).)\n",
+    "code": "try:\n    build_dyson_sphere()\nexcept NotEnoughScienceError, NotEnoughResourcesError:",
+    "version_results": [
+      {
+        "version": "3.0 - 3.8",
+        "diagnostic": "  File \"examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.9",
+        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n                                ^\r\nSyntaxError: invalid syntax\r\n"
+      },
+      {
+        "version": "3.10 - 3.12",
+        "diagnostic": "  File \"/workspace/examples/multiple_exceptions_without_parentheses.py\", line 3\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nSyntaxError: multiple exception types must be parenthesized\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except \u001b[1;31mNotEnoughScienceError, NotEnoughResourcesError\u001b[0m:\r\n           \u001b[1;31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\u001b[0m\r\n\u001b[1;35mSyntaxError\u001b[0m: \u001b[35mmultiple exception types must be parenthesized\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "  File \u001b[35m\"/workspace/examples/multiple_exceptions_without_parentheses.py\"\u001b[0m, line \u001b[35m3\u001b[0m\r\n    except NotEnoughScienceError, NotEnoughResourcesError:\r\n\u001b[1;35mIndentationError\u001b[0m: \u001b[35mexpected an indented block\u001b[0m\r\n"
+      }
+    ]
+  },
+  {
+    "name": "examples/list_as_dict_key.py",
+    "title": "List As Dict Key",
+    "description": null,
+    "code": "d = {}\nl = [1, 2, 3]\nd[l] = 12\n",
+    "version_results": [
+      {
+        "version": "3.0 - 3.8",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
+      },
+      {
+        "version": "3.9 - 3.10",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\nTypeError: unhashable type: 'list'\r\n"
+      },
+      {
+        "version": "3.11 - 3.12",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \"/workspace/examples/list_as_dict_key.py\", line 3, in <module>\r\n    d[l] = 12\r\n    ~^^^\r\nTypeError: unhashable type: 'list'\r\n"
+      },
+      {
+        "version": "3.13",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35munhashable type: 'list'\u001b[0m\r\n"
+      },
+      {
+        "version": "3.14 - 3.15a3",
+        "diagnostic": "Traceback (most recent call last):\r\n  File \u001b[35m\"/workspace/examples/list_as_dict_key.py\"\u001b[0m, line \u001b[35m3\u001b[0m, in \u001b[35m<module>\u001b[0m\r\n    \u001b[31md\u001b[0m\u001b[1;31m[l]\u001b[0m = 12\r\n    \u001b[31m~\u001b[0m\u001b[1;31m^^^\u001b[0m\r\n\u001b[1;35mTypeError\u001b[0m: \u001b[35mcannot use 'list' as a dict key (unhashable type: 'list')\u001b[0m\r\n"
       }
     ]
   }
